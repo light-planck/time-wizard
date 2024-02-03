@@ -3,6 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 
 import { useState } from "react";
 import { Button } from "./components/ui/button";
+import { Input } from "./components/ui/input";
+import { Label } from "./components/ui/label";
 import { Interval } from "./types";
 import { Total } from "./types/total";
 
@@ -53,9 +55,9 @@ const App = () => {
 			<div>
 				{intervals.map((interval) => (
 					<div key={interval.id}>
-						<form>
-							<label>開始</label>
-							<input
+						<div className="grid w-full max-w-sm items-center gap-1.5">
+							<Label>開始</Label>
+							<Input
 								type="time"
 								value={interval.start}
 								onChange={(event) =>
@@ -65,10 +67,10 @@ const App = () => {
 									})
 								}
 							/>
-						</form>
-						<form>
-							<label>終了</label>
-							<input
+						</div>
+						<div className="grid w-full max-w-sm items-center gap-1.5">
+							<Label>終了</Label>
+							<Input
 								type="time"
 								value={interval.end}
 								onChange={(event) =>
@@ -78,7 +80,7 @@ const App = () => {
 									})
 								}
 							/>
-						</form>
+						</div>
 						<Button onClick={() => handleDeleteInterval(interval.id)}>
 							削除
 						</Button>
