@@ -1,20 +1,20 @@
 import { FC } from "react";
 
-import { Interval } from "@/types";
+import { TimeInterval } from "@/types";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 
 interface Props {
-	interval: Interval;
-	onChangeInterval: (id: string, newValue: Interval) => void;
-	onDeleteInterval: (id: string) => void;
+	timeInterval: TimeInterval;
+	onChangeTimeInterval: (id: string, newValue: TimeInterval) => void;
+	onDeleteTimeInterval: (id: string) => void;
 }
 
 export const IntervalInput: FC<Props> = ({
-	interval,
-	onChangeInterval,
-	onDeleteInterval,
+	timeInterval,
+	onChangeTimeInterval,
+	onDeleteTimeInterval,
 }) => {
 	return (
 		<div className="flex flex-row gap-5 items-end">
@@ -22,10 +22,10 @@ export const IntervalInput: FC<Props> = ({
 				<Label>開始</Label>
 				<Input
 					type="time"
-					value={interval.start}
+					value={timeInterval.start}
 					onChange={(event) =>
-						onChangeInterval(interval.id, {
-							...interval,
+						onChangeTimeInterval(timeInterval.id, {
+							...timeInterval,
 							start: event.target.value,
 						})
 					}
@@ -35,10 +35,10 @@ export const IntervalInput: FC<Props> = ({
 				<Label>終了</Label>
 				<Input
 					type="time"
-					value={interval.end}
+					value={timeInterval.end}
 					onChange={(event) =>
-						onChangeInterval(interval.id, {
-							...interval,
+						onChangeTimeInterval(timeInterval.id, {
+							...timeInterval,
 							end: event.target.value,
 						})
 					}
@@ -46,7 +46,7 @@ export const IntervalInput: FC<Props> = ({
 			</div>
 			<Button
 				variant="destructive"
-				onClick={() => onDeleteInterval(interval.id)}
+				onClick={() => onDeleteTimeInterval(timeInterval.id)}
 			>
 				削除
 			</Button>

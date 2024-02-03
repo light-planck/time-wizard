@@ -1,4 +1,4 @@
-export interface Interval {
+export interface TimeInterval {
 	id: string;
 	start: string;
 	end: string;

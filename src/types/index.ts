@@ -1,1 +1,2 @@
-export * from "./interval";
+export * from "./time-interval";
+export * from "./total-time";
