@@ -1,4 +1,4 @@
 export interface TotalTime {
-	hours: number;
-	minutes: number;
+  hours: number;
+  minutes: number;
 }

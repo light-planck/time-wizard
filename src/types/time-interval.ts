@@ -1,5 +1,5 @@
 export interface TimeInterval {
-	id: string;
-	start: string;
-	end: string;
+  id: string;
+  start: string;
+  end: string;
 }
