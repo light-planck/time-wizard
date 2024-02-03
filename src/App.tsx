@@ -1,8 +1,8 @@
 import { Header } from "./components/header";
 import { IntervalInput } from "./components/interval-input";
 import { Button } from "./components/ui/button";
-import { useTimeIntervals } from "./hooks/useTimeIntervals";
-import { useTotalTime } from "./hooks/useTotalTime";
+import { useTimeIntervals } from "./hooks/use-time-intervals";
+import { useTotalTime } from "./hooks/use-total-time";
 
 const App = () => {
 	const {
