@@ -23,11 +23,6 @@ jobs:
           version: latest
           run_install: false
 
-      - name: Setup Biome
-        uses: biomejs/setup-biome@v2
-        with:
-          version: latest
-
       - name: Get pnpm store directory
         shell: bash
         run: |
@@ -44,8 +39,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run Biome
-        run: biome ci .
+      - name: Check formatting
+        run: prettier --check .
 
       - name: Build
         run: pnpm build
