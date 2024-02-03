@@ -46,6 +46,9 @@ const App = () => {
 
 	return (
 		<div>
+			<h1>Add Time Intervals</h1>
+			<p>複数の時間の区間の総和を計算できます。</p>
+			<hr />
 			<div>
 				{intervals.map((interval) => (
 					<div key={interval.id}>
