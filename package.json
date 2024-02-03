@@ -6,8 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "format": "biome check --apply --no-errors-on-unmatched .",
-    "preview": "vite preview"
+    "format": "prettier --write --ignore-unknown .",
+    "preview": "vite preview",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.0.2",
@@ -30,7 +34,10 @@
     "@types/uuid": "^9.0.8",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.17",
+    "husky": "^9.0.10",
+    "lint-staged": "^15.2.1",
     "postcss": "^8.4.33",
+    "prettier": "3.2.4",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.2.2",
     "vite": "^5.0.8"
