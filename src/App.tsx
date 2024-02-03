@@ -17,6 +17,10 @@ const App = () => {
 		);
 	};
 
+	const handleDeleteInterval = (id: string) => {
+		setIntervals(intervals.filter((interval) => interval.id !== id));
+	};
+
 	const handleAddInterval = () => {
 		setIntervals([...intervals, { id: uuidv4(), start: "", end: "" }]);
 	};
@@ -71,6 +75,12 @@ const App = () => {
 								}
 							/>
 						</form>
+						<button
+							type="button"
+							onClick={() => handleDeleteInterval(interval.id)}
+						>
+							削除
+						</button>
 					</div>
 				))}
 			</div>
