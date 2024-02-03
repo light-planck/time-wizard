@@ -2,6 +2,7 @@ import { useLocalStorage } from "usehooks-ts";
 import { v4 as uuidv4 } from "uuid";
 
 import { useState } from "react";
+import { Button } from "./components/ui/button";
 import { Interval } from "./types";
 import { Total } from "./types/total";
 
@@ -78,27 +79,18 @@ const App = () => {
 								}
 							/>
 						</form>
-						<button
-							type="button"
-							onClick={() => handleDeleteInterval(interval.id)}
-						>
+						<Button onClick={() => handleDeleteInterval(interval.id)}>
 							削除
-						</button>
+						</Button>
 					</div>
 				))}
 			</div>
 			<div>
-				<button type="button" onClick={handleAddInterval}>
-					追加
-				</button>
-				<button type="button" onClick={handleResetIntervals}>
-					リセット
-				</button>
+				<Button onClick={handleAddInterval}>追加</Button>
+				<Button onClick={handleResetIntervals}>リセット</Button>
 			</div>
 			<div>
-				<button type="button" onClick={handleAddIntervals}>
-					計算
-				</button>
+				<Button onClick={handleAddIntervals}>計算</Button>
 			</div>
 			<div>
 				<p>
