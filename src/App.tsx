@@ -49,55 +49,64 @@ const App = () => {
 
 	return (
 		<div>
-			<h1>Add Time Intervals</h1>
-			<p>複数の時間の区間の総和を計算できます。</p>
+			<div className="p-5">
+				<h1 className="text-2xl">Add Time Intervals</h1>
+				<p>複数の時間の区間の総和を計算できます。</p>
+			</div>
 			<hr />
-			<div>
-				{intervals.map((interval) => (
-					<div key={interval.id}>
-						<div className="grid w-full max-w-sm items-center gap-1.5">
-							<Label>開始</Label>
-							<Input
-								type="time"
-								value={interval.start}
-								onChange={(event) =>
-									handleChangeInterval(interval.id, {
-										...interval,
-										start: event.target.value,
-									})
-								}
-							/>
+			<div className="flex flex-col gap-5 p-5">
+				<div className="flex flex-col gap-5">
+					{intervals.map((interval) => (
+						<div className="flex flex-row gap-5 items-end" key={interval.id}>
+							<div className="grid w-full max-w-sm items-center gap-1.5">
+								<Label>開始</Label>
+								<Input
+									type="time"
+									value={interval.start}
+									onChange={(event) =>
+										handleChangeInterval(interval.id, {
+											...interval,
+											start: event.target.value,
+										})
+									}
+								/>
+							</div>
+							<div className="grid w-full max-w-sm items-center gap-1.5">
+								<Label>終了</Label>
+								<Input
+									type="time"
+									value={interval.end}
+									onChange={(event) =>
+										handleChangeInterval(interval.id, {
+											...interval,
+											end: event.target.value,
+										})
+									}
+								/>
+							</div>
+							<Button
+								variant="destructive"
+								onClick={() => handleDeleteInterval(interval.id)}
+							>
+								削除
+							</Button>
 						</div>
-						<div className="grid w-full max-w-sm items-center gap-1.5">
-							<Label>終了</Label>
-							<Input
-								type="time"
-								value={interval.end}
-								onChange={(event) =>
-									handleChangeInterval(interval.id, {
-										...interval,
-										end: event.target.value,
-									})
-								}
-							/>
-						</div>
-						<Button onClick={() => handleDeleteInterval(interval.id)}>
-							削除
-						</Button>
-					</div>
-				))}
-			</div>
-			<div>
-				<Button onClick={handleAddInterval}>追加</Button>
-				<Button onClick={handleResetIntervals}>リセット</Button>
-			</div>
-			<div>
-				<Button onClick={handleAddIntervals}>計算</Button>
-			</div>
-			<div>
-				<p>
-					合計時間: {total.hours}時間 {total.minutes}分{" "}
-				</p>
+					))}
+				</div>
+				<div className="flex flex-row justify-center gap-5">
+					<Button onClick={handleAddInterval}>追加</Button>
+					<Button variant="secondary" onClick={handleResetIntervals}>
+						リセット
+					</Button>
+				</div>
+				<div className="flex justify-center">
+					<Button onClick={handleAddIntervals}>計算</Button>
+				</div>
+				<div className="flex justify-center">
+					<p>
+						合計時間: {total.hours}時間 {total.minutes}分{" "}
+					</p>
+				</div>
 			</div>
 		</div>
 	);
