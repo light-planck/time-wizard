@@ -18,7 +18,7 @@ export const IntervalInput: FC<Props> = ({
   onDeleteTimeInterval,
 }) => {
   return (
-    <div className="flex flex-row gap-5 items-end">
+    <div className="flex flex-row gap-5 items-end justify-center">
       <div className="grid w-full max-w-sm items-center gap-1.5">
         <Label>開始</Label>
         <Input
