@@ -20,9 +20,10 @@ export const IntervalInput: FC<Props> = ({
   return (
     <div className="flex flex-row gap-5 items-end justify-center">
       <div className="grid w-full max-w-sm items-center gap-1.5">
-        <Label>開始</Label>
+        <Label htmlFor="start-time">開始</Label>
         <Input
           type="time"
+          id="start-time"
           value={timeInterval.start}
           onChange={(event) =>
             onChangeTimeInterval(timeInterval.id, {
@@ -33,9 +34,10 @@ export const IntervalInput: FC<Props> = ({
         />
       </div>
       <div className="grid w-full max-w-sm items-center gap-1.5">
-        <Label>終了</Label>
+        <Label htmlFor="end-time">終了</Label>
         <Input
           type="time"
+          id="end-time"
           value={timeInterval.end}
           onChange={(event) =>
             onChangeTimeInterval(timeInterval.id, {
@@ -49,7 +51,7 @@ export const IntervalInput: FC<Props> = ({
         variant="destructive"
         onClick={() => onDeleteTimeInterval(timeInterval.id)}
       >
-        削除
+        <p className="text-black">削除</p>
       </Button>
     </div>
   );
