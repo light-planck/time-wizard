@@ -1,5 +1,5 @@
-import { Header } from "./components/header";
 import { IntervalInput } from "./components/interval-input";
+import { Header } from "./components/layouts/header";
 import { Button } from "./components/ui/button";
 import { useTimeIntervals } from "./hooks/use-time-intervals";
 import { useTotalTime } from "./hooks/use-total-time";
