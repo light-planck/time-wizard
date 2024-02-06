@@ -6,7 +6,7 @@ import { TimeInterval } from "@/types";
 export const useTimeIntervals = () => {
   const [timeIntervals, setTimeIntervals] = useLocalStorage<TimeInterval[]>(
     "timeIntervals",
-    [],
+    [{ id: uuidv4(), start: "", end: "" }],
   );
 
   const onChangeTimeInterval = (id: string, newValue: TimeInterval) => {
@@ -26,7 +26,7 @@ export const useTimeIntervals = () => {
   };
 
   const onResetTimeIntervals = () => {
-    setTimeIntervals([]);
+    setTimeIntervals([{ id: uuidv4(), start: "", end: "" }]);
   };
 
   return {
