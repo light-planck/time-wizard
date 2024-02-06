@@ -1,12 +1,11 @@
 import { useLocalStorage } from "usehooks-ts";
-import { v4 as uuidv4 } from "uuid";
 
 import { TimeInterval } from "@/types";
 
 export const useTimeIntervals = () => {
   const [timeIntervals, setTimeIntervals] = useLocalStorage<TimeInterval[]>(
     "timeIntervals",
-    [{ id: uuidv4(), start: "", end: "" }],
+    [{ id: crypto.randomUUID(), start: "", end: "" }],
   );
 
   const onChangeTimeInterval = (id: string, newValue: TimeInterval) => {
@@ -22,11 +21,14 @@ export const useTimeIntervals = () => {
   };
 
   const onAddTimeInterval = () => {
-    setTimeIntervals([...timeIntervals, { id: uuidv4(), start: "", end: "" }]);
+    setTimeIntervals([
+      ...timeIntervals,
+      { id: crypto.randomUUID(), start: "", end: "" },
+    ]);
   };
 
   const onResetTimeIntervals = () => {
-    setTimeIntervals([{ id: uuidv4(), start: "", end: "" }]);
+    setTimeIntervals([{ id: crypto.randomUUID(), start: "", end: "" }]);
   };
 
   return {
