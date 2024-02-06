@@ -20,33 +20,20 @@ module.exports = {
       "error",
       {
         groups: [
-          "builtin", // 組み込みモジュール
-          "external", // npmでインストールした外部ライブラリ
-          "internal", // 自作モジュール
+          "builtin",
+          "external",
+          "internal",
           ["parent", "sibling"],
           "object",
           "type",
           "index",
         ],
-        "newlines-between": "always", // グループ毎にで改行を入れる
+        "newlines-between": "always",
         pathGroupsExcludedImportTypes: ["builtin"],
         alphabetize: {
-          order: "asc", // 昇順にソート
-          caseInsensitive: true, // 小文字大文字を区別する
+          order: "asc",
+          caseInsensitive: true,
         },
-        pathGroups: [
-          // 指定した順番にソートされる
-          {
-            pattern: "@/components/common",
-            group: "internal",
-            position: "before",
-          },
-          {
-            pattern: "@/components/hooks",
-            group: "internal",
-            position: "before",
-          },
-        ],
       },
     ],
     "no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
