@@ -33,8 +33,8 @@ dependencies:
     specifier: ^1.0.7
     version: 1.0.7(tailwindcss@3.4.1)
   usehooks-ts:
-    specifier: ^2.12.1
-    version: 2.12.1(react@18.2.0)
+    specifier: ^2.14.0
+    version: 2.14.0(react@18.2.0)
 
 devDependencies:
   '@testing-library/react':
@@ -3781,8 +3781,8 @@ packages:
       requires-port: 1.0.0
     dev: true
 
-  /usehooks-ts@2.12.1(react@18.2.0):
-    resolution: {integrity: sha512-meo93qn2hyBJdHVczbalnsU2FU2WQ1ZVRmppRn8+P6TXo9hORNe10pFVKJfIBYfb2FFapqNuF5vUviLRSy/vAw==}
+  /usehooks-ts@2.14.0(react@18.2.0):
+    resolution: {integrity: sha512-jnhrjTRJoJS7cFxz63tRYc5mzTKf/h+Ii8P0PDHymT9qDe4ZA2/gzDRmDR4WGausg5X8wMIdghwi3BBCN9JKow==}
     engines: {node: '>=16.15.0'}
     peerDependencies:
       react: ^16.8.0  || ^17 || ^18
