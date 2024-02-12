@@ -17,3 +17,5 @@
 | lint-staged     | フォーマット・リント     |
 | Vitest          | テストランナー           |
 | Testing Library | インタラクションテスト   |
+| GitHub Actions  | CI                       |
+| Vercel          | デプロイ・CD             |
