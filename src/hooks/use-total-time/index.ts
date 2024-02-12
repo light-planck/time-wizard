@@ -7,9 +7,11 @@ export const useTotalTime = (intervals: TimeInterval[]) => {
   const [totalError, setTotalError] = useState(false);
 
   const onAddIntervals = () => {
-    const hasInvalidInput = intervals.some(
-      (interval) => interval.start === "" || interval.end === "",
-    );
+    const hasInvalidInput =
+      intervals.length === 0 ||
+      intervals.some(
+        (interval) => interval.start === "" || interval.end === "",
+      );
     setTotalError(hasInvalidInput);
 
     if (hasInvalidInput) return;
