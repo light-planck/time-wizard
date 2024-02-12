@@ -24,6 +24,31 @@ describe("#useTotalTime", () => {
     expect(result.current.total).toEqual({ hours: 1, minutes: 0 });
   });
 
+  it("returns the total time when the hour are same", () => {
+    const intervals = [
+      { id: crypto.randomUUID(), start: "03:10", end: "03:20" },
+    ];
+    const { result } = renderHook(() => useTotalTime(intervals));
+
+    act(() => {
+      result.current.onAddIntervals();
+    });
+    expect(result.current.total).toEqual({ hours: 0, minutes: 10 });
+  });
+
+  it("returns the total time when there are multiple intervals", () => {
+    const intervals = [
+      { id: crypto.randomUUID(), start: "00:00", end: "01:10" },
+      { id: crypto.randomUUID(), start: "03:00", end: "05:30" },
+    ];
+    const { result } = renderHook(() => useTotalTime(intervals));
+
+    act(() => {
+      result.current.onAddIntervals();
+    });
+    expect(result.current.total).toEqual({ hours: 3, minutes: 40 });
+  });
+
   it("returns the total time even across days", () => {
     const intervals = [
       { id: crypto.randomUUID(), start: "01:10", end: "01:00" },

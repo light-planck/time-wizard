@@ -26,9 +26,10 @@ export const useTotalTime = (intervals: TimeInterval[]) => {
         minute: Number(interval.end.slice(3)),
       };
 
-      if (start.hour === end.hour && start.minute === end.minute) return acc;
-
-      if (end.hour > start.hour) {
+      if (
+        end.hour > start.hour ||
+        (end.hour === start.hour && end.minute >= start.minute)
+      ) {
         return acc + (end.hour - start.hour) * 60 + (end.minute - start.minute);
       } else {
         return (
