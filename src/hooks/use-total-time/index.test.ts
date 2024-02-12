@@ -26,13 +26,25 @@ describe("#useTotalTime", () => {
 
   it("returns the total time even across days", () => {
     const intervals = [
-      { id: crypto.randomUUID(), start: "23:00", end: "01:00" },
+      { id: crypto.randomUUID(), start: "01:10", end: "01:00" },
     ];
     const { result } = renderHook(() => useTotalTime(intervals));
 
     act(() => {
       result.current.onAddIntervals();
     });
-    expect(result.current.total).toEqual({ hours: 2, minutes: 0 });
+    expect(result.current.total).toEqual({ hours: 23, minutes: 50 });
+  });
+
+  it("returns 0 when there are no intervals", () => {
+    const intervals = [
+      { id: crypto.randomUUID(), start: "00:00", end: "00:00" },
+    ];
+    const { result } = renderHook(() => useTotalTime(intervals));
+
+    act(() => {
+      result.current.onAddIntervals();
+    });
+    expect(result.current.total).toEqual({ hours: 0, minutes: 0 });
   });
 });
