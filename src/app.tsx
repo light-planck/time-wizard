@@ -1,5 +1,8 @@
+import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
+
 import { IntervalInput } from "./components/interval-input";
 import { Header } from "./components/layouts/header";
+import { Alert, AlertTitle, AlertDescription } from "./components/ui/alert";
 import { Button } from "./components/ui/button";
 import { useTimeIntervals } from "./hooks/use-time-intervals";
 import { useTotalTime } from "./hooks/use-total-time";
@@ -12,8 +15,7 @@ const App = () => {
     onDeleteTimeInterval,
     onResetTimeIntervals,
   } = useTimeIntervals();
-
-  const { total, onAddIntervals } = useTotalTime(timeIntervals);
+  const { total, totalError, onAddIntervals } = useTotalTime(timeIntervals);
 
   return (
     <div>
@@ -39,9 +41,19 @@ const App = () => {
           <Button onClick={onAddIntervals}>計算</Button>
         </div>
         <div className="flex justify-center">
-          <p>
-            合計時間: {total.hours}時間 {total.minutes}分{" "}
-          </p>
+          {totalError ? (
+            <div className="w-1/4">
+              <Alert variant="destructive">
+                <ExclamationTriangleIcon className="h-4 w-4" />
+                <AlertTitle>エラー</AlertTitle>
+                <AlertDescription>時間を設定してください。</AlertDescription>
+              </Alert>
+            </div>
+          ) : (
+            <p>
+              合計時間: {total.hours}時間 {total.minutes}分{" "}
+            </p>
+          )}
         </div>
       </div>
     </div>

@@ -4,8 +4,16 @@ import { TimeInterval, TotalTime } from "@/types";
 
 export const useTotalTime = (intervals: TimeInterval[]) => {
   const [total, setTotal] = useState<TotalTime>({ hours: 0, minutes: 0 });
+  const [totalError, setTotalError] = useState(false);
 
   const onAddIntervals = () => {
+    const hasInvalidInput = intervals.some(
+      (interval) => interval.start === "" || interval.end === "",
+    );
+    setTotalError(hasInvalidInput);
+
+    if (hasInvalidInput) return;
+
     const total = intervals.reduce((acc, interval) => {
       const start = {
         hour: Number(interval.start.slice(0, 2)),
@@ -33,6 +41,7 @@ export const useTotalTime = (intervals: TimeInterval[]) => {
 
   return {
     total,
+    totalError,
     onAddIntervals,
   };
 };
