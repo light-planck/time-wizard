@@ -14,7 +14,7 @@
 | Prettier        | フォーマッター           |
 | ESLint          | リンター                 |
 | Husky           | Git hooks                |
-| lint-staged     | フォーマット・リント     |
+| lint-staged     | Pre-commit               |
 | Vitest          | テストランナー           |
 | Testing Library | インタラクションテスト   |
 | GitHub Actions  | CI                       |
