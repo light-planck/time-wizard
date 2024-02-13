@@ -19,7 +19,7 @@
   "lint-staged": {
     "**/*": [
       "prettier --write --ignore-unknown",
-      "eslint --fix --ext js,ts,tsx --report-unused-disable-directives"
+      "eslint --ext js,ts,tsx --report-unused-disable-directives --fix"
     ]
   },
   "dependencies": {
