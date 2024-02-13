@@ -11,7 +11,8 @@
     "check": "prettier --check .",
     "preview": "vite preview",
     "prepare": "husky",
-    "test": "vitest"
+    "test": "vitest",
+    "ci:publish": "pnpm publish -r"
   },
   "lint-staged": {
     "**/*": [
