@@ -1,11 +1,11 @@
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 
-import { IntervalInput } from "./components/interval-input";
 import { Footer } from "./components/layouts/footer";
 import { Header } from "./components/layouts/header";
 import { Alert, AlertTitle, AlertDescription } from "./components/ui/alert";
 import { Button } from "./components/ui/button";
-import { useTimeIntervals } from "./hooks/use-time-intervals";
+import { useTimeIntervals } from "./features/time-interval/hooks/use-time-intervals";
+import { TimeIntervalInput } from "./features/time-interval/time-interval-input";
 import { useTotalTime } from "./hooks/use-total-time";
 
 const App = () => {
@@ -25,7 +25,7 @@ const App = () => {
         <div className="flex flex-col gap-5 p-5">
           <div className="flex flex-col gap-5">
             {timeIntervals.map((interval) => (
-              <IntervalInput
+              <TimeIntervalInput
                 key={interval.id}
                 timeInterval={interval}
                 onChangeTimeInterval={onChangeTimeInterval}
