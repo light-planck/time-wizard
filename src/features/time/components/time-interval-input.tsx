@@ -3,7 +3,8 @@ import { FC } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { TimeInterval } from "@/types";
+
+import { TimeInterval } from "../types";
 
 interface Props {
   timeInterval: TimeInterval;

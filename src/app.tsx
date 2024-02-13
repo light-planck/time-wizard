@@ -4,9 +4,9 @@ import { Footer } from "./components/layouts/footer";
 import { Header } from "./components/layouts/header";
 import { Alert, AlertTitle, AlertDescription } from "./components/ui/alert";
 import { Button } from "./components/ui/button";
-import { useTimeIntervals } from "./features/time-interval/hooks/use-time-intervals";
-import { TimeIntervalInput } from "./features/time-interval/time-interval-input";
-import { useTotalTime } from "./hooks/use-total-time";
+import { TimeIntervalInput } from "./features/time/components/time-interval-input";
+import { useTimeIntervals } from "./features/time/hooks/use-time-intervals";
+import { useTotalTime } from "./features/time/hooks/use-total-time";
 
 const App = () => {
   const {
