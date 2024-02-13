@@ -9,7 +9,7 @@
     "type-check": "tsc",
     "build": "turbo run type-check _build",
     "format": "prettier --write --ignore-unknown .",
-    "lint": "eslint . --ext js,ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint --ext js,ts,tsx --report-unused-disable-directives --max-warnings 0 --fix .",
     "check": "prettier --check .",
     "preview": "vite preview",
     "prepare": "husky",
