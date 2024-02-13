@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { TimeInterval, TotalTime } from "@/types";
+import { TimeInterval, TotalTime } from "../../types";
 
 export const useTotalTime = (intervals: TimeInterval[]) => {
   const [total, setTotal] = useState<TotalTime>({ hours: 0, minutes: 0 });

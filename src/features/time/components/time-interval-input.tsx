@@ -1,10 +1,10 @@
+import { Label } from "@radix-ui/react-label";
 import { FC } from "react";
 
-import { TimeInterval } from "@/types";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Label } from "./ui/label";
+import { TimeInterval } from "../types";
 
 interface Props {
   timeInterval: TimeInterval;
@@ -12,7 +12,7 @@ interface Props {
   onDeleteTimeInterval: (id: string) => void;
 }
 
-export const IntervalInput: FC<Props> = ({
+export const TimeIntervalInput: FC<Props> = ({
   timeInterval,
   onChangeTimeInterval,
   onDeleteTimeInterval,

@@ -1,6 +1,6 @@
 import { useLocalStorage } from "usehooks-ts";
 
-import { TimeInterval } from "@/types";
+import { TimeInterval } from "../../types";
 
 export const useTimeIntervals = () => {
   const [timeIntervals, setTimeIntervals] = useLocalStorage<TimeInterval[]>(
