@@ -11,12 +11,21 @@ import { useTotalTime } from "./features/time/hooks/use-total-time";
 const App = () => {
   const {
     timeIntervals,
+    hasValidTimeIntervals,
     onChangeTimeInterval,
     onAddTimeInterval,
     onDeleteTimeInterval,
     onResetTimeIntervals,
+    validateTimeIntervals,
   } = useTimeIntervals();
-  const { total, totalError, onAddIntervals } = useTotalTime(timeIntervals);
+  const { total, onAddIntervals } = useTotalTime(timeIntervals);
+
+  const handleCalculate = () => {
+    const { success } = validateTimeIntervals();
+    if (!success) return;
+
+    onAddIntervals();
+  };
 
   return (
     <div className="flex flex-col min-h-screen m-0">
@@ -40,10 +49,14 @@ const App = () => {
             </Button>
           </div>
           <div className="flex justify-center">
-            <Button onClick={onAddIntervals}>計算</Button>
+            <Button onClick={handleCalculate}>計算</Button>
           </div>
           <div className="flex justify-center">
-            {totalError ? (
+            {hasValidTimeIntervals ? (
+              <p>
+                合計時間: {total.hours}時間 {total.minutes}分{" "}
+              </p>
+            ) : (
               <div className="w-1/4">
                 <Alert variant="destructive">
                   <ExclamationTriangleIcon className="h-4 w-4" />
@@ -51,10 +64,6 @@ const App = () => {
                   <AlertDescription>時間を設定してください。</AlertDescription>
                 </Alert>
               </div>
-            ) : (
-              <p>
-                合計時間: {total.hours}時間 {total.minutes}分{" "}
-              </p>
             )}
           </div>
         </div>
