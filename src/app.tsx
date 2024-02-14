@@ -18,13 +18,13 @@ const App = () => {
     onResetTimeIntervals,
     validateTimeIntervals,
   } = useTimeIntervals();
-  const { total, onAddIntervals } = useTotalTime(timeIntervals);
+  const { totalTime, onCalculateTotalTime } = useTotalTime(timeIntervals);
 
   const handleCalculate = () => {
     const { success } = validateTimeIntervals();
     if (!success) return;
 
-    onAddIntervals();
+    onCalculateTotalTime();
   };
 
   return (
@@ -54,7 +54,7 @@ const App = () => {
           <div className="flex justify-center">
             {hasValidTimeIntervals ? (
               <p>
-                合計時間: {total.hours}時間 {total.minutes}分{" "}
+                合計時間: {totalTime.hours}時間 {totalTime.minutes}分{" "}
               </p>
             ) : (
               <div className="w-1/4">

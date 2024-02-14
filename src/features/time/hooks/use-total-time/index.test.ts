@@ -9,7 +9,7 @@ describe("#useTotalTime", () => {
     ];
     const { result } = renderHook(() => useTotalTime(intervals));
 
-    expect(result.current.total).toEqual({ hours: 0, minutes: 0 });
+    expect(result.current.totalTime).toEqual({ hours: 0, minutes: 0 });
   });
 
   it("単一の区間の時間を返す", () => {
@@ -19,9 +19,9 @@ describe("#useTotalTime", () => {
     const { result } = renderHook(() => useTotalTime(intervals));
 
     act(() => {
-      result.current.onAddIntervals();
+      result.current.onCalculateTotalTime();
     });
-    expect(result.current.total).toEqual({ hours: 1, minutes: 0 });
+    expect(result.current.totalTime).toEqual({ hours: 1, minutes: 0 });
   });
 
   it("同じhourでも区間の時間を返す", () => {
@@ -31,9 +31,9 @@ describe("#useTotalTime", () => {
     const { result } = renderHook(() => useTotalTime(intervals));
 
     act(() => {
-      result.current.onAddIntervals();
+      result.current.onCalculateTotalTime();
     });
-    expect(result.current.total).toEqual({ hours: 0, minutes: 10 });
+    expect(result.current.totalTime).toEqual({ hours: 0, minutes: 10 });
   });
 
   it("複数の区間の時間の総和を返す", () => {
@@ -44,9 +44,9 @@ describe("#useTotalTime", () => {
     const { result } = renderHook(() => useTotalTime(intervals));
 
     act(() => {
-      result.current.onAddIntervals();
+      result.current.onCalculateTotalTime();
     });
-    expect(result.current.total).toEqual({ hours: 3, minutes: 40 });
+    expect(result.current.totalTime).toEqual({ hours: 3, minutes: 40 });
   });
 
   it("日を跨いでも区間の時間を返す", () => {
@@ -56,9 +56,9 @@ describe("#useTotalTime", () => {
     const { result } = renderHook(() => useTotalTime(intervals));
 
     act(() => {
-      result.current.onAddIntervals();
+      result.current.onCalculateTotalTime();
     });
-    expect(result.current.total).toEqual({ hours: 23, minutes: 50 });
+    expect(result.current.totalTime).toEqual({ hours: 23, minutes: 50 });
   });
 
   it("開始と終了が同じ時刻の場合は0を返す", () => {
@@ -68,8 +68,8 @@ describe("#useTotalTime", () => {
     const { result } = renderHook(() => useTotalTime(intervals));
 
     act(() => {
-      result.current.onAddIntervals();
+      result.current.onCalculateTotalTime();
     });
-    expect(result.current.total).toEqual({ hours: 0, minutes: 0 });
+    expect(result.current.totalTime).toEqual({ hours: 0, minutes: 0 });
   });
 });

@@ -3,9 +3,12 @@ import { useState } from "react";
 import { TimeInterval, TotalTime } from "../../types";
 
 export const useTotalTime = (intervals: TimeInterval[]) => {
-  const [total, setTotal] = useState<TotalTime>({ hours: 0, minutes: 0 });
+  const [totalTime, setTotalTime] = useState<TotalTime>({
+    hours: 0,
+    minutes: 0,
+  });
 
-  const onAddIntervals = () => {
+  const onCalculateTotalTime = () => {
     const total = intervals.reduce((acc, interval) => {
       const start = {
         hour: Number(interval.start.slice(0, 2)),
@@ -28,14 +31,14 @@ export const useTotalTime = (intervals: TimeInterval[]) => {
       }
     }, 0);
 
-    setTotal({
+    setTotalTime({
       hours: Math.floor(total / 60),
       minutes: total % 60,
     });
   };
 
   return {
-    total,
-    onAddIntervals,
+    totalTime,
+    onCalculateTotalTime,
   };
 };
