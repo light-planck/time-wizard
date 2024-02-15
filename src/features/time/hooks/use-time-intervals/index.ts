@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useLocalStorage } from "usehooks-ts";
+
+import { useLocalStorage } from "@/hooks/use-local-storage";
 
 import { TimeInterval, validateTimeInterval } from "../../types";
 
