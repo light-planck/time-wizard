@@ -5,10 +5,10 @@ import { useLocalStorage } from "@/hooks/use-local-storage";
 import { TimeInterval, validateTimeInterval } from "../../types";
 
 export const useTimeIntervals = () => {
-  const { storedValue: timeIntervals, setValue: setTimeIntervals } =
-    useLocalStorage<TimeInterval[]>("timeIntervals", [
-      { id: crypto.randomUUID(), start: "", end: "" },
-    ]);
+  const [timeIntervals, setTimeIntervals] = useLocalStorage<TimeInterval[]>(
+    "timeIntervals",
+    [{ id: crypto.randomUUID(), start: "", end: "" }],
+  );
   const [hasValidTimeIntervals, setHasValidTimeIntervals] = useState(true);
 
   const onChangeTimeInterval = (id: string, newValue: TimeInterval) => {
