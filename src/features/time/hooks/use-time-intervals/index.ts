@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { useLocalStorage } from "@/hooks/use-local-storage";
 
-import { TimeInterval, validateTimeInterval } from "../../types";
+import { TimeInterval, validateTimeInterval } from "../../schemas";
 
 export const useTimeIntervals = () => {
   const [timeIntervals, setTimeIntervals] = useLocalStorage<TimeInterval[]>(
