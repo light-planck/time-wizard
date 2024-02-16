@@ -4,7 +4,7 @@ import { FC } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-import { TimeInterval } from "../schemas";
+import { TimeInterval } from "../../schemas";
 
 interface Props {
   timeInterval: TimeInterval;
