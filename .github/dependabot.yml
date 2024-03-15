@@ -8,6 +8,7 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
+      interval: "weekly"
       day: "saturday"
       time: "00:00"
       timezone: "Asia/Tokyo"
@@ -15,6 +16,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
+      interval: "weekly"
       day: "saturday"
       time: "00:00"
       timezone: "Asia/Tokyo"
