@@ -22,7 +22,5 @@ describe("#TimeIntervalInput", () => {
     const endTimeLabel = screen.getByLabelText("終了");
     expect(startTimeLabel).toBeInTheDocument();
     expect(endTimeLabel).toBeInTheDocument();
-
-    console.log(startTimeLabel);
   });
 });
