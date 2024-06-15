@@ -15,10 +15,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
+      - name: Setup mise
+        uses: jdx/mise-action@v2
         with:
-          node-version: 20.14.0
+          mise_toml: |
+            [tools]
+            shellcheck = "0.9.0"
+          run: shellcheck scripts/*.sh
 
       - uses: pnpm/action-setup@v4
         name: Install pnpm
