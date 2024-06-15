@@ -18,12 +18,12 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "lts/*"
+          node-version: 20.14.0
 
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
-          version: latest
+          version: 9
           run_install: false
 
       - name: Install dependencies
