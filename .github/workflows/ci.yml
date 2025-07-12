@@ -1,4 +1,4 @@
-name: Code quality
+name: CI
 
 on:
   push:
@@ -6,6 +6,7 @@ on:
 
 jobs:
   quality:
+    name: Code Quality
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
