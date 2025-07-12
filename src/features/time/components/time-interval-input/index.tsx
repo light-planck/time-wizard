@@ -18,7 +18,7 @@ export const TimeIntervalInput: FC<Props> = ({
   onDeleteTimeInterval,
 }) => {
   return (
-    <div className="flex flex-col sm:flex-row gap-3 items-end p-4 bg-gray-50 rounded-lg border border-gray-200">
+    <div className="flex flex-col sm:flex-row gap-3 items-end p-4 bg-blue-50 rounded-lg border border-blue-100">
       <div className="flex-1">
         <Label
           htmlFor={`start-time-${timeInterval.id}`}

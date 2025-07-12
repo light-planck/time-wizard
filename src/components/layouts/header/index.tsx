@@ -2,7 +2,7 @@ import { Logo } from "@/components/icons/logo";
 
 export const Header = () => {
   return (
-    <header className="bg-gradient-to-r from-green-50 to-green-100 border-b border-green-200">
+    <header className="bg-gradient-to-r from-blue-50 to-blue-100 border-b border-blue-200">
       <div className="container mx-auto px-4 py-6">
         <div className="flex items-center gap-4">
           <Logo width={60} height={60} />

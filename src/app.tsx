@@ -28,7 +28,7 @@ const App = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
+    <div className="flex flex-col min-h-screen bg-slate-50">
       <Header />
       <div className="flex-1 container mx-auto px-4 py-8">
         <div className="max-w-2xl mx-auto">
