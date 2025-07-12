@@ -1,0 +1,12 @@
+# Lefthook configuration
+# https://github.com/evilmartians/lefthook
+
+pre-commit:
+  commands:
+    lint-staged:
+      run: pnpm lint-staged
+
+post-merge:
+  commands:
+    install-deps:
+      run: pnpm install --frozen-lockfile
