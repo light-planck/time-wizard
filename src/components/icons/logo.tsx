@@ -1,18 +1,21 @@
 import type { FC } from "react";
+import { cn } from "@/lib/utils";
 
 interface Props {
   width?: number;
   height?: number;
+  className?: string;
 }
 
-export const Logo: FC<Props> = ({ width, height }) => {
+export const Logo: FC<Props> = ({ width, height, className }) => {
   return (
-    <div>
+    <div className={className}>
       <img
         alt="logo icon"
         src="logo.svg"
         width={width ?? 100}
         height={height ?? 100}
+        className="w-full h-full"
       />
     </div>
   );
