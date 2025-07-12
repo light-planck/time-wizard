@@ -18,8 +18,8 @@ describe("#TimeIntervalInput", () => {
       />
     );
 
-    const startTimeLabel = screen.getByLabelText("開始");
-    const endTimeLabel = screen.getByLabelText("終了");
+    const startTimeLabel = screen.getByLabelText("開始時刻");
+    const endTimeLabel = screen.getByLabelText("終了時刻");
     expect(startTimeLabel).toBeInTheDocument();
     expect(endTimeLabel).toBeInTheDocument();
   });

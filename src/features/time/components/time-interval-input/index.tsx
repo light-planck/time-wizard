@@ -18,12 +18,17 @@ export const TimeIntervalInput: FC<Props> = ({
   onDeleteTimeInterval,
 }) => {
   return (
-    <div className="flex flex-row gap-5 items-end justify-center">
-      <div className="grid w-full max-w-sm items-center gap-1.5">
-        <Label htmlFor="start-time">開始</Label>
+    <div className="flex flex-col sm:flex-row gap-3 items-end p-4 bg-blue-50 rounded-lg border border-blue-100">
+      <div className="flex-1">
+        <Label
+          htmlFor={`start-time-${timeInterval.id}`}
+          className="text-sm font-medium text-gray-700"
+        >
+          開始時刻
+        </Label>
         <Input
           type="time"
-          id="start-time"
+          id={`start-time-${timeInterval.id}`}
           value={timeInterval.start}
           onChange={(event) =>
             onChangeTimeInterval(timeInterval.id, {
@@ -31,13 +36,19 @@ export const TimeIntervalInput: FC<Props> = ({
               start: event.target.value,
             })
           }
+          className="mt-1"
         />
       </div>
-      <div className="grid w-full max-w-sm items-center gap-1.5">
-        <Label htmlFor="end-time">終了</Label>
+      <div className="flex-1">
+        <Label
+          htmlFor={`end-time-${timeInterval.id}`}
+          className="text-sm font-medium text-gray-700"
+        >
+          終了時刻
+        </Label>
         <Input
           type="time"
-          id="end-time"
+          id={`end-time-${timeInterval.id}`}
           value={timeInterval.end}
           onChange={(event) =>
             onChangeTimeInterval(timeInterval.id, {
@@ -45,13 +56,16 @@ export const TimeIntervalInput: FC<Props> = ({
               end: event.target.value,
             })
           }
+          className="mt-1"
         />
       </div>
       <Button
         variant="destructive"
+        size="sm"
         onClick={() => onDeleteTimeInterval(timeInterval.id)}
+        className="px-3"
       >
-        <p className="text-black">削除</p>
+        削除
       </Button>
     </div>
   );
