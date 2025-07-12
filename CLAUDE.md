@@ -1,81 +1,81 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+このファイルは、このリポジトリで作業する際のClaude Code (claude.ai/code) への指針を提供します。
 
-## Project Overview
+## プロジェクト概要
 
-Time Wizard is a React-based web application for calculating total time from multiple time intervals. It uses TypeScript, Vite, and modern React patterns with a feature-based architecture.
+Time Wizardは、複数の時間区間から合計時間を計算するReactベースのWebアプリケーションです。TypeScript、Vite、そして機能ベースアーキテクチャを採用したモダンなReactパターンを使用しています。
 
-## Essential Commands
+## 必須コマンド
 
 ```bash
-# Development
-pnpm dev          # Start development server at http://localhost:5173
-pnpm preview      # Preview production build
+# 開発
+pnpm dev          # 開発サーバーを起動 (http://localhost:5173)
+pnpm preview      # プロダクションビルドのプレビュー
 
-# Building
-pnpm build        # Type check and build (runs through Turbo)
+# ビルド
+pnpm build        # 型チェックとビルド (Turbo経由で実行)
 
-# Code Quality
-pnpm format       # Format code with Biome
-pnpm lint         # Lint and auto-fix issues with Biome
-pnpm check        # Combined format + lint check
+# コード品質
+pnpm format       # Biomeでコードフォーマット
+pnpm lint         # Biomeでリントと自動修正
+pnpm check        # フォーマット + リントの統合チェック
 
-# Testing
-pnpm test         # Run all tests via Turbo
-pnpm vitest       # Run tests in watch mode
-pnpm vitest run   # Run tests once
+# テスト
+pnpm test         # Turbo経由で全テストを実行
+pnpm vitest       # ウォッチモードでテスト実行
+pnpm vitest run   # テストを一度だけ実行
 ```
 
-## Architecture
+## アーキテクチャ
 
-### Directory Structure
-- `src/features/` - Feature-based modules (currently: time calculation)
-- `src/components/` - Shared components organized by type (ui/, layouts/, icons/)
-- `src/hooks/` - Global custom hooks
-- `src/lib/` - Utility functions and helpers
+### ディレクトリ構造
+- `src/features/` - 機能ベースのモジュール（現在：時間計算）
+- `src/components/` - タイプ別に整理された共有コンポーネント (ui/, layouts/, icons/)
+- `src/hooks/` - グローバルなカスタムフック
+- `src/lib/` - ユーティリティ関数とヘルパー
 
-### Key Patterns
-1. **Feature-driven architecture**: Business logic organized under `src/features/`
-2. **Custom hooks pattern**: Complex logic encapsulated in hooks (e.g., `useTimeIntervals`)
-3. **Schema validation**: Zod schemas define data structures and validation rules
-4. **Component library**: UI components from shadcn/ui in `src/components/ui/`
-5. **Path aliasing**: Use `@/` for imports from src directory
+### 主要パターン
+1. **機能駆動アーキテクチャ**: ビジネスロジックは `src/features/` 配下に整理
+2. **カスタムフックパターン**: 複雑なロジックをフックにカプセル化 (例: `useTimeIntervals`)
+3. **スキーマバリデーション**: Zodスキーマでデータ構造と検証ルールを定義
+4. **コンポーネントライブラリ**: shadcn/uiのUIコンポーネントを `src/components/ui/` に配置
+5. **パスエイリアス**: srcディレクトリからのインポートには `@/` を使用
 
-### State Management
-- Local component state with React hooks
-- Form state managed by custom hooks with Zod validation
-- Persistence via localStorage (using `useLocalStorage` hook)
+### 状態管理
+- Reactフックによるローカルコンポーネント状態
+- Zodバリデーション付きカスタムフックによるフォーム状態管理
+- localStorageによる永続化（`useLocalStorage` フック使用）
 
-## Development Guidelines
+## 開発ガイドライン
 
-### Adding New Features
-1. Create feature directory under `src/features/`
-2. Include: components/, hooks/, schemas/ subdirectories as needed
-3. Define Zod schemas for data validation
-4. Create custom hooks for business logic
-5. Build UI components using shadcn/ui primitives
+### 新機能の追加
+1. `src/features/` 配下に機能ディレクトリを作成
+2. 必要に応じて components/, hooks/, schemas/ サブディレクトリを含める
+3. データ検証用のZodスキーマを定義
+4. ビジネスロジック用のカスタムフックを作成
+5. shadcn/uiプリミティブを使用してUIコンポーネントを構築
 
-### Testing
-- Test files colocated with source files (*.test.ts, *.test.tsx)
-- Use Vitest and Testing Library
-- Focus on integration tests for hooks and components
-- Run specific test: `pnpm vitest path/to/test`
+### テスト
+- テストファイルはソースファイルと同じ場所に配置 (*.test.ts, *.test.tsx)
+- VitestとTesting Libraryを使用
+- フックとコンポーネントの統合テストに注力
+- 特定のテストを実行: `pnpm vitest path/to/test`
 
-### Code Style
-- Biome handles all formatting and linting
-- Pre-commit hooks ensure code quality
-- TypeScript strict mode enforced
-- Follow existing patterns in the codebase
+### コードスタイル
+- Biomeがフォーマットとリントを処理
+- プリコミットフックでコード品質を保証
+- TypeScript strictモードを強制
+- 既存のコードベースのパターンに従う
 
-### UI Development
-- Use Tailwind CSS utilities for styling
-- Leverage shadcn/ui components from `src/components/ui/`
-- Icons from lucide-react
-- Maintain accessibility with Radix UI primitives
+### UI開発
+- スタイリングにはTailwind CSSユーティリティを使用
+- `src/components/ui/` からshadcn/uiコンポーネントを活用
+- アイコンはlucide-reactから
+- Radix UIプリミティブでアクセシビリティを維持
 
-## Important Files
-- `biome.json` - Formatting and linting configuration
-- `turbo.json` - Build pipeline configuration
-- `components.json` - shadcn/ui component configuration
-- `src/features/time/` - Core time calculation feature implementation
+## 重要なファイル
+- `biome.json` - フォーマットとリントの設定
+- `turbo.json` - ビルドパイプラインの設定
+- `components.json` - shadcn/uiコンポーネントの設定
+- `src/features/time/` - コアとなる時間計算機能の実装
