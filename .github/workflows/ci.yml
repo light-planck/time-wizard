@@ -1,27 +1,31 @@
 name: CI
 
 on:
-  - push
+  push:
 
 jobs:
+  quality:
+    name: Code Quality
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v2
+        with:
+          version: latest
+      - name: Run Biome
+        run: biome ci .
+
   build:
     name: Build
     runs-on: ubuntu-latest
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ vars.TURBO_TEAM }}
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Setup mise
-        uses: jdx/mise-action@v2
-        with:
-          mise_toml: |
-            [tools]
-            shellcheck = "0.9.0"
-          run: shellcheck scripts/*.sh
 
       - uses: pnpm/action-setup@v4
         name: Install pnpm
@@ -31,14 +35,26 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Check formatting
-        run: pnpm check
-
-      - name: Lint
-        run: pnpm lint
-
       - name: Build
         run: pnpm build
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          run_install: false
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Test
         run: pnpm test
