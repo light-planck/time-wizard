@@ -13,9 +13,9 @@ describe("#TimeIntervalInput", () => {
     render(
       <TimeIntervalInput
         timeInterval={mockTimeInterval}
-        onChangeTimeInterval={() => {}}
-        onDeleteTimeInterval={() => {}}
-      />,
+        onChangeTimeInterval={() => undefined}
+        onDeleteTimeInterval={() => undefined}
+      />
     );
 
     const startTimeLabel = screen.getByLabelText("開始");
