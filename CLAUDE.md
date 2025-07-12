@@ -67,6 +67,8 @@ pnpm vitest run   # テストを一度だけ実行
 - プリコミットフックでコード品質を保証
 - TypeScript strictモードを強制
 - 既存のコードベースのパターンに従う
+- Reactコンポーネントはfunction宣言を使用（arrow functionではなく）
+- React.FCの代わりに、必要に応じてPropsの型注釈を使用
 
 ### UI開発
 - スタイリングにはTailwind CSSユーティリティを使用

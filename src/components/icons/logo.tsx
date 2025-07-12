@@ -1,12 +1,10 @@
-import type { FC } from "react";
-
 interface Props {
   width?: number;
   height?: number;
   className?: string;
 }
 
-export const Logo: FC<Props> = ({ width, height, className }) => {
+export function Logo({ width, height, className }: Props) {
   return (
     <img
       alt="logo icon"
@@ -16,4 +14,4 @@ export const Logo: FC<Props> = ({ width, height, className }) => {
       className={className}
     />
   );
-};
+}
