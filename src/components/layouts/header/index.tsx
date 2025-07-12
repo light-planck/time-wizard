@@ -2,13 +2,13 @@ import { Logo } from "@/components/icons/logo";
 
 export const Header = () => {
   return (
-    <header className="bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg">
+    <header className="bg-gradient-to-r from-green-50 to-green-100 border-b border-green-200">
       <div className="container mx-auto px-4 py-6">
         <div className="flex items-center gap-4">
           <Logo width={60} height={60} />
           <div>
-            <h1 className="text-3xl font-bold">Time Wizard</h1>
-            <p className="text-sm text-purple-100">
+            <h1 className="text-3xl font-bold text-gray-800">Time Wizard</h1>
+            <p className="text-sm text-gray-600">
               時間の区間の合計時間を計算できます。
             </p>
           </div>
