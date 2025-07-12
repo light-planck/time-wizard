@@ -2,7 +2,7 @@ import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 
 import { Footer } from "./components/layouts/footer";
 import { Header } from "./components/layouts/header";
-import { Alert, AlertTitle, AlertDescription } from "./components/ui/alert";
+import { Alert, AlertDescription, AlertTitle } from "./components/ui/alert";
 import { Button } from "./components/ui/button";
 import { TimeIntervalInput } from "./features/time/components/time-interval-input";
 import { useTimeIntervals } from "./features/time/hooks/use-time-intervals";

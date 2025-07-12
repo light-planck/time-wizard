@@ -2,20 +2,20 @@ import { useState } from "react";
 
 import { useLocalStorage } from "@/hooks/use-local-storage";
 
-import { TimeInterval, validateTimeInterval } from "../../schemas";
+import { type TimeInterval, validateTimeInterval } from "../../schemas";
 
 export const useTimeIntervals = () => {
   const [timeIntervals, setTimeIntervals] = useLocalStorage<TimeInterval[]>(
     "timeIntervals",
-    [{ id: crypto.randomUUID(), start: "", end: "" }],
+    [{ id: crypto.randomUUID(), start: "", end: "" }]
   );
   const [hasValidTimeIntervals, setHasValidTimeIntervals] = useState(true);
 
   const onChangeTimeInterval = (id: string, newValue: TimeInterval) => {
     setTimeIntervals(
       timeIntervals.map((interval) =>
-        interval.id === id ? newValue : interval,
-      ),
+        interval.id === id ? newValue : interval
+      )
     );
   };
 

@@ -13,8 +13,9 @@ describe("#Header", () => {
   it("説明を表示する", () => {
     render(<Header />);
 
-    const description =
-      screen.getByText("時間の区間の合計時間を計算できます。");
+    const description = screen.getByText(
+      "時間の区間の合計時間を計算できます。"
+    );
     expect(description).toBeInTheDocument();
   });
 });

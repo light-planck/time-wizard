@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { TimeInterval, TotalTime } from "../../schemas";
+import type { TimeInterval, TotalTime } from "../../schemas";
 
 export const useTotalTime = (intervals: TimeInterval[]) => {
   const [totalTime, setTotalTime] = useState<TotalTime>({
@@ -24,11 +24,10 @@ export const useTotalTime = (intervals: TimeInterval[]) => {
         (end.hour === start.hour && end.minute >= start.minute)
       ) {
         return acc + (end.hour - start.hour) * 60 + (end.minute - start.minute);
-      } else {
-        return (
-          acc + (end.hour + 24 - start.hour) * 60 + (end.minute - start.minute)
-        );
       }
+      return (
+        acc + (end.hour + 24 - start.hour) * 60 + (end.minute - start.minute)
+      );
     }, 0);
 
     setTotalTime({

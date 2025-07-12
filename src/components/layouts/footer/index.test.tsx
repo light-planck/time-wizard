@@ -17,7 +17,7 @@ describe("#Footer", () => {
     expect(githubLink).toBeInTheDocument();
     expect(githubLink).toHaveAttribute(
       "href",
-      "https://github.com/light-planck/add-time-intervals",
+      "https://github.com/light-planck/add-time-intervals"
     );
   });
 });

@@ -1,10 +1,10 @@
 import { Label } from "@radix-ui/react-label";
-import { FC } from "react";
+import type { FC } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-import { TimeInterval } from "../../schemas";
+import type { TimeInterval } from "../../schemas";
 
 interface Props {
   timeInterval: TimeInterval;
