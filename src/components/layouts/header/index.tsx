@@ -1,6 +1,6 @@
 import { Logo } from "@/components/icons/logo";
 
-export const Header = () => {
+export function Header() {
   return (
     <header className="bg-gradient-to-r from-blue-50 to-blue-100 border-b border-blue-200">
       <div className="container mx-auto px-4 py-4 sm:py-6">
@@ -20,4 +20,4 @@ export const Header = () => {
       </div>
     </header>
   );
-};
+}

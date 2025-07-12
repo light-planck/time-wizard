@@ -8,7 +8,7 @@ import { TimeIntervalInput } from "./features/time/components/time-interval-inpu
 import { useTimeIntervals } from "./features/time/hooks/use-time-intervals";
 import { useTotalTime } from "./features/time/hooks/use-total-time";
 
-const App = () => {
+function App() {
   const {
     timeIntervals,
     hasValidTimeIntervals,
@@ -92,6 +92,6 @@ const App = () => {
       <Footer />
     </div>
   );
-};
+}
 
 export default App;

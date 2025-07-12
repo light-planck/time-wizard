@@ -1,5 +1,4 @@
 import { Label } from "@radix-ui/react-label";
-import type { FC } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,11 +11,11 @@ interface Props {
   onDeleteTimeInterval: (id: string) => void;
 }
 
-export const TimeIntervalInput: FC<Props> = ({
+export function TimeIntervalInput({
   timeInterval,
   onChangeTimeInterval,
   onDeleteTimeInterval,
-}) => {
+}: Props) {
   return (
     <div className="flex flex-row gap-2 sm:gap-3 items-end p-3 sm:p-4 bg-blue-50 rounded-lg border border-blue-100">
       <div className="flex-1">
@@ -69,4 +68,4 @@ export const TimeIntervalInput: FC<Props> = ({
       </Button>
     </div>
   );
-};
+}
