@@ -20,7 +20,13 @@ export const useTimeIntervals = () => {
   };
 
   const onDeleteTimeInterval = (id: string) => {
-    setTimeIntervals(timeIntervals.filter((interval) => interval.id !== id));
+    if (timeIntervals.length === 1) {
+      // If only one interval exists, reset its values instead of deleting
+      setTimeIntervals([{ id: crypto.randomUUID(), start: "", end: "" }]);
+    } else {
+      // If multiple intervals exist, delete the specified one
+      setTimeIntervals(timeIntervals.filter((interval) => interval.id !== id));
+    }
   };
 
   const onAddTimeInterval = () => {
