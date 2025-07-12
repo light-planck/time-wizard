@@ -18,11 +18,11 @@ export const TimeIntervalInput: FC<Props> = ({
   onDeleteTimeInterval,
 }) => {
   return (
-    <div className="flex flex-col sm:flex-row gap-3 items-end p-3 sm:p-4 bg-blue-50 rounded-lg border border-blue-100">
+    <div className="flex flex-row gap-2 sm:gap-3 items-end p-3 sm:p-4 bg-blue-50 rounded-lg border border-blue-100">
       <div className="flex-1">
         <Label
           htmlFor={`start-time-${timeInterval.id}`}
-          className="text-sm font-medium text-gray-700"
+          className="text-xs sm:text-sm font-medium text-gray-700"
         >
           開始時刻
         </Label>
@@ -42,7 +42,7 @@ export const TimeIntervalInput: FC<Props> = ({
       <div className="flex-1">
         <Label
           htmlFor={`end-time-${timeInterval.id}`}
-          className="text-sm font-medium text-gray-700"
+          className="text-xs sm:text-sm font-medium text-gray-700"
         >
           終了時刻
         </Label>
@@ -63,7 +63,7 @@ export const TimeIntervalInput: FC<Props> = ({
         variant="destructive"
         size="sm"
         onClick={() => onDeleteTimeInterval(timeInterval.id)}
-        className="px-3 w-full sm:w-auto"
+        className="px-2 sm:px-3 w-auto"
       >
         削除
       </Button>
